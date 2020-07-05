@@ -42,8 +42,13 @@ public class MainController {
 		return "index";
 	}
 	
+	//METODO REDIRECCIONA EL HOME DEL LOCALHOST/usuarios A /usuarioFormTest.html
+		@GetMapping("/usuarios")
+		public String abrirF(Model model) {
+			return "usuarioFormTest";
+		}
 
-	@GetMapping({"/","/indexTest"})
+	@GetMapping({"/indexTest"})
 	public String ingresarTest(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		return "indexTest";
