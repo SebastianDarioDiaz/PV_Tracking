@@ -15,7 +15,7 @@ import ar.edu.unju.fi.entity.Vehiculo;
  */
 public interface IVehiculoService {
 
-	void guardarVehiculo();
+	void guardarVehiculo(Vehiculo vehiculo);
 	void eliminarVehiculo();
 	Optional<Vehiculo> obtenerVehiculo();
 	List<Vehiculo> obtenerVehiculos();

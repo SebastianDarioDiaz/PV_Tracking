@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   
   
   <h2>Registro de Datos</h2>
-	<form>
+	<form th:objet="${vehiculo}"  th:action="@{/altaVehiculo}" method="post">
 
  
        
@@ -124,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Patente</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="number" class="form-control" id="   ">
+           <input type="number" class="form-control" id=" "  th:field="${vehiculo.patente}">
          </div>
        </div>
        </div>
@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Color</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="text" class="form-control" id="   ">
+           <input type="text" class="form-control" id="   "  th:field="${vehiculo.color}">
          </div>
        </div>
        </div>
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Titular</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="text" class="form-control" id="   ">
+           <input type="text" class="form-control" id="   " th:field="${vehiculo.titular}">
          </div>
        </div>
        </div>
@@ -157,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Marca</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="text" class="form-control" id="   ">
+           <input type="text" class="form-control" id="   "  th:field="${vehiculo.marca}">
          </div>
        </div>
        </div>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Modelo</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="text" class="form-control" id="   ">
+           <input type="text" class="form-control" id="   "  th:field="${vehiculo.modelo}">
          </div>
        </div>
        </div>
@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-2 col-form-label">Tipo</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="text" class="form-control" id="   ">
+           <input type="text" class="form-control" id="   "  th:field="${vehiculo.tipo}">
          </div>
        </div>
        </div>
@@ -192,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-10 col-form-label">Numero de Chasis</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="number" class="form-control" id="   ">
+           <input type="number" class="form-control" id="   "  th:field="${vehiculo.numeroChasis}">
          </div>
        </div>
        </div>
@@ -203,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <label for="  " class="col-sm-10 col-form-label">Numero de motor</label>
          <div class="col-sm-12">
          	<!-- Lo mismo para id -->
-           <input type="number" class="form-control" id="   ">
+           <input type="number" class="form-control" id="   "  th:field="${vehiculo.numeroMotor}">
          </div>
        </div>
        </div>
@@ -213,6 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <div class="form-group row">
           <div class="col-sm-12">
             <button type="submit" class="btn btn-primary">Registrar</button>
+            <div class="alert-danger text-center" th:if="${formAltaVehiculoError}" th:text="${formAltaVehiculoError}"> Name Error </div>
           </div>
        </div>
       

@@ -52,6 +52,10 @@ public class VehiculoController {
 		return "vehiculoForm";
 	}
 	
+	
+
+	
+	
 	@PostMapping("/formulario-6")
 	public String crearVehiculo(@Valid @ModelAttribute("vehiculoForm")Vehiculo vehiculo,BindingResult result, ModelMap model) {
 		//agregado valid(tambien en el modelo)y BindingResult 
@@ -62,7 +66,7 @@ public class VehiculoController {
 			model.addAttribute("listaVehiculos", vehiculoService.obtenerVehiculos());
 		}else {
 		try {
-			vehiculoService.guardarVehiculo();
+			vehiculoService.guardarVehiculo(new Vehiculo());
 			model.addAttribute("vehiculoForm", new Vehiculo());
 			model.addAttribute("listTab", "active");
 		}catch (Exception e) {

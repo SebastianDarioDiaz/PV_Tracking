@@ -1,0 +1,91 @@
+@charset "ISO-8859-1";
+.contenedor{
+	width:900px;
+	height:700px;
+	background:#d4f8e8;
+	margin-left:300px;
+}
+.contenedor1{
+	display:inline-block;
+}
+.contenedorDAT{
+	background:#eeeeee;
+	padding:20px;
+	margin-bottom:40px;
+	border-radius: 8px;
+	margin-top:50px;
+	
+}
+.contenedorDAT:hover{
+	box-shadow: 4px 4px 4px black;
+}
+.contenedorTRIP{
+	background:#eeeeee;
+	padding:20px;
+	margin-bottom:40px;
+	border-radius: 8px;
+	margin-top:50px;
+}
+.contenedorTRIP:hover{
+	box-shadow: 4px 4px 4px black;
+}
+.contenedorVEHI{
+	background:#eeeeee;
+	padding:20px;
+	margin-bottom:40px;
+	border-radius: 8px;
+	margin-top:50px;
+}
+.contenedorVEHI:hover{
+	box-shadow: 4px 4px 4px black;
+}
+header{
+	background:#383e56;
+	color:white;
+	height:100px;
+}
+
+nav{
+	float:right;
+	margin-right: 100px;
+	margin-top:0px;	
+}
+a{
+	padding:10px;
+}
+h1{
+	font-style: italic;
+	margin-left: 50px;
+	margin-top: 0px;
+}
+h2{
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+.botones{
+	text-decoration:none;
+    display: inline-block;
+    padding: 4px 30px;
+    background: white;
+    text-align: center;
+    margin: none;
+    color: black;
+    border-radius: 5px; 
+    underline:none;	
+}
+.botones:hover{
+    background: #fa7d09;
+    color: white;
+}
+footer{
+	background:#383e56;
+	color:white;
+	text-align:center;
+}
+.datos{
+	height:400px;
+	background: blue;
+	background:#eeeeee;
+	border-radius: 8px;
+}

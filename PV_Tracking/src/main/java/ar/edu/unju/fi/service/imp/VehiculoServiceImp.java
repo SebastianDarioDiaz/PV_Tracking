@@ -26,7 +26,7 @@ public class VehiculoServiceImp implements IVehiculoService {
 	private Vehiculo vehiculo;
 	
 	@Override
-	public void guardarVehiculo() {
+	public void guardarVehiculo(Vehiculo vehiculo) {
 		// TODO Auto-generated method stub
 		vehiculoRepository.save(vehiculo);
 

@@ -1,0 +1,290 @@
+<!DOCTYPE html >
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>FORMULARIO-LOGIN</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Trucking Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<!-- //custom-theme -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- <link href="css-form/login.css" rel="stylesheet" type="text/css" media="all" /> -->
+<link href="css-form/login.css" rel="stylesheet" type="text/css" media="all" />
+<link href="form-resources/all.css" rel="stylesheet" type="text/css" media="all" />
+<!-- <link href="form-resources/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" /> -->
+
+<link rel="stylesheet" href="css/mainStyles.css" />
+<link rel='stylesheet' href='css/dscountdown.css' type='text/css'
+	media='all' />
+
+<link rel="stylesheet" href="css/flexslider.css" type="text/css"
+	media="screen" property="" />
+<!-- gallery -->
+<link href="css/lsb.css" rel="stylesheet" type="text/css">
+<!-- //gallery -->
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet">
+<link
+	href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+	rel="stylesheet">
+<link
+	href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+
+<!-- start-smooth-scrolling -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- banner -->
+	<div class="header">
+
+		<div class="w3layouts_header_right">
+			<div class="detail-w3l">
+				<ul>
+					<!-- <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> + 1 804-043-3496</li> -->
+
+				</ul>
+			</div>
+
+		</div>
+		<div class="w3layouts_header_left">
+			<ul>
+				<li><a href="#" data-toggle="modal" data-target="#myModal2"><i
+						class="fa fa-user" aria-hidden="true"></i>Login</a></li>
+
+			</ul>
+
+		</div>
+		<div class="agileits-social top_content">
+			<ul>
+				<li><a href="https://www.facebook.com/"><i
+						class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+				<!-- <li><a href="#"><i class="fa fa-rss"></i></a></li> -->
+				<!-- <li><a href="#"><i class="fa fa-vk"></i></a></li> -->
+			</ul>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+	<div class="banner">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<h1>
+					<a class="navbar-brand" href="index.html"><span><i
+							class="fa fa-truck" aria-hidden="true"></i></span>TRUCKING</a>
+				</h1>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right"
+				id="bs-example-navbar-collapse-1">
+				<nav class="link-effect-2" id="link-effect-2">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.html"><span
+								data-hover="PRINCIPAL">PRINCIPAL</span></a></li>
+						<li><a href="about.html"><span data-hover="CONTACTO">CONTACTO</span></a></li>
+						<li><a href="services.html"><span data-hover="SERVICIOS">SERVICIOS</span></a></li>
+						<!-- <li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="Short Codes">Short Codes</span> <b class="caret"></b></a>
+							<ul class="dropdown-menu agile_short_dropdown">
+								<li><a href="icons.html">Web Icons</a></li>
+								<li><a href="typography.html">Typography</a></li>
+							</ul>
+						</li> -->
+						<li><a href="contact.html"><span
+								data-hover="RECOMENDACIONES">RECOMENDACIONES</span></a></li>
+					</ul>
+				</nav>
+
+			</div>
+
+		</nav>
+	</div>
+
+	<!--  CONTENEDOR  -->
+
+<div class="w3-agile-services">
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">SIGN IN</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!--  CONTENEDOR  -->
+	
+
+<!-- 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			Modal content
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+					<div class="signin-form profile">
+						<h3 class="agileinfo_sign">Sign In</h3>
+						<div class="login-form">
+							<form action="#" method="post">
+								<input type="email" name="email" placeholder="E-mail"
+									required=""> <input type="password" name="password"
+									placeholder="Password" required="">
+								<div class="tp">
+									<input type="submit" value="Sign In">
+								</div>
+							</form>
+						</div>
+						<div class="login-social-grids">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- //Modal1 -->
+
+
+	<!-- //bootstrap-pop-up -->
+
+
+
+	<!-- //footer-contact -->
+	<div class="footer-final">
+		<div class="copyw3-agile">
+			<div class="container">
+				<p>
+					PROYECTO FINAL TRACKING <a href="http:/">Programación Visual |
+						2020</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="js/mainScript.js"></script>
+	<script src="js/rgbSlide.min.js"></script>
+
+
+	<!--team-->
+	<script type="text/javascript">
+		$(window).load(function() {
+			$("#flexiselDemo1").flexisel({
+				visibleItems : 4,
+				animationSpeed : 1000,
+				autoPlay : true,
+				autoPlaySpeed : 3000,
+				pauseOnHover : true,
+				enableResponsiveBreakpoints : true,
+				responsiveBreakpoints : {
+					portrait : {
+						changePoint : 480,
+						visibleItems : 1
+					},
+					landscape : {
+						changePoint : 640,
+						visibleItems : 2
+					},
+					tablet : {
+						changePoint : 768,
+						visibleItems : 3
+					}
+				}
+			});
+
+		});
+	</script>
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	<!--team-->
+	<!-- //here ends scrolling icon -->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			 */
+			$().UItoTop({
+				easingType : 'easeOutQuart'
+			});
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span
+		id="toTopHover" style="opacity: 1;"> </span></a>
+	<script src="js/SmoothScroll.min.js"></script>
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	
+	<script type="text/javascript" src="form-resources/jquery.slim.min.js"></script>
+	<script type="text/javascript" src="form-resources/bootstrap.bundle.min.js"></script>
+
+	<!-- start-smoth-scrolling -->
+	<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+	<!-- //for bootstrap working -->
+
+</body>
+</html>
