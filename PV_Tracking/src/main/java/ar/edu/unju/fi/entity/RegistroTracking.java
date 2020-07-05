@@ -55,12 +55,12 @@ public class RegistroTracking implements Serializable {
 	private List<Tripulante> tripulantes = new ArrayList<Tripulante>();
 	
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_VEHICULO")
 	private Vehiculo vehiculo;
 	
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_LOCALIDAD")
 	private Localidad localidad;
 	

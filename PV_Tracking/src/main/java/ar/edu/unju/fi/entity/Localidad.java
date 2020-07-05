@@ -41,7 +41,7 @@ public class Localidad implements Serializable {
 	private String nombreLocalidad;
 	
 
-	@OneToMany(mappedBy = "localidad", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "localidad")
 	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 	
 	public Localidad() {

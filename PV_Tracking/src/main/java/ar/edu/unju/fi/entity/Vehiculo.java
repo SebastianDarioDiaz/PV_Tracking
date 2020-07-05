@@ -62,7 +62,7 @@ public class Vehiculo implements Serializable {
 	
 	
 
-	@OneToMany(mappedBy = "vehiculo" , cascade = CascadeType.ALL )
+	@OneToMany(mappedBy = "vehiculo")
 	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 	
 	public Vehiculo() {
