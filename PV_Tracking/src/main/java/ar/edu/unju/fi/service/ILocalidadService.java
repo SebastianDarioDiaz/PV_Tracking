@@ -15,8 +15,11 @@ import ar.edu.unju.fi.entity.Localidad;
  */
 public interface ILocalidadService {
 
-	void guardarLocalidad();
-	void eliminarLocalidad();
+	public void guardarLocalidad(Localidad localidad);
+	public void eliminarLocalidad(Long id);
 	Optional<Localidad> obtenerLocalidad();
+	public Localidad modificarLocalidad(Localidad localidad) throws Exception;
 	List<Localidad> obtenerLocalidades();
+	public Localidad buscarLocalidad(Long id) throws Exception;
+	public Iterable<Localidad> listarLocalidades();
 }

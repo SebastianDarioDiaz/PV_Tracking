@@ -7,6 +7,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,12 +42,36 @@ public class MainController {
 	public String ingresar(Model model) {
 		return "index";
 	}
-	
+	///USUARIO///
 	//METODO REDIRECCIONA EL HOME DEL LOCALHOST/usuarios A /usuarioFormTest.html
 		@GetMapping("/usuarios")
 		public String abrirF(Model model) {
 			return "usuarioFormTest";
 		}
+		
+		
+		
+	///LOCALIDAD///
+		@GetMapping("/localidades")
+		public String cargarFormLocalidad(Model model) {
+			model.addAttribute("nuevaLocalidad", new Localidad());
+			model.addAttribute("localidades", localidadService.listarLocalidades());
+			model.addAttribute("formTab","active");
+			return "formLocalidad";
+		}
+		
+		@PostMapping("/localidades")
+		public String gestionarLocalidad(@ModelAttribute ("nuevaLocalidad") Localidad localidad, ModelMap model) {	
+			//AGREGAR
+			localidadService.guardarLocalidad(localidad);
+			model.addAttribute("nuevaLocalidad", new Localidad());
+			
+			//LISTAR
+			model.addAttribute("localidades", localidadService.listarLocalidades());
+			model.addAttribute("listTab","active");
+			return "formLocalidad";
+		}
+		
 
 	@GetMapping({"/indexTest"})
 	public String ingresarTest(Model model) {

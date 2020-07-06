@@ -26,13 +26,13 @@ public class LocalidadServiceImp implements ILocalidadService {
 	private Localidad localidad;
 	
 	@Override
-	public void guardarLocalidad() {
+	public void guardarLocalidad(Localidad localidad) {
 		// TODO Auto-generated method stub
 		localidadRepository.save(localidad);
 	}
 
 	@Override
-	public void eliminarLocalidad() {
+	public void eliminarLocalidad(Long id) {
 		// TODO Auto-generated method stub
 		localidadRepository.delete(localidad);
 		
@@ -46,6 +46,24 @@ public class LocalidadServiceImp implements ILocalidadService {
 
 	@Override
 	public List<Localidad> obtenerLocalidades() {
+		// TODO Auto-generated method stub
+		return localidadRepository.findAll();
+	}
+
+	@Override
+	public Localidad modificarLocalidad(Localidad localidad) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Localidad buscarLocalidad(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Localidad> listarLocalidades() {
 		// TODO Auto-generated method stub
 		return localidadRepository.findAll();
 	}

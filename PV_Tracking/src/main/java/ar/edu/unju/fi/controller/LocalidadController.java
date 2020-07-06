@@ -56,36 +56,34 @@ public class LocalidadController {
 		return "localidadForm";
 	}
 	
-	@PostMapping("/formulario")
-	public String crearLocalidad(@Valid @ModelAttribute("localidadForm")Localidad localidad,BindingResult result, ModelMap model) {
-		//agregado valid(tambien en el modelo)y BindingResult 
-		if(result.hasErrors()) {
-			//si tira error se vuelve a la vista anteriro
-			model .addAttribute("localidadForm", localidad);
-			model.addAttribute("formTab", "active");
-			model.addAttribute("listaLocalidades", localidadService.obtenerLocalidades());
-		}else {
-		try {
-			localidadService.guardarLocalidad();
-			model.addAttribute("localidadForm", new Localidad());
-			model.addAttribute("listTab", "active");
-		}catch (Exception e) {
-			//pasar excepciones al html
-			model.addAttribute("formLocalidadErrorMessage", e.getMessage());
-			model.addAttribute("localidadForm",localidad);
-			model.addAttribute("listaLocalidades", localidadService.obtenerLocalidades());
-			model.addAttribute("formTab", "active");
-			
-		}
-	
-	}
-		return "localidadForm";
+	/*
+	 * @PostMapping("/formulario") public String
+	 * crearLocalidad(@Valid @ModelAttribute("localidadForm")Localidad
+	 * localidad,BindingResult result, ModelMap model) { //agregado valid(tambien en
+	 * el modelo)y BindingResult if(result.hasErrors()) { //si tira error se vuelve
+	 * a la vista anteriro model .addAttribute("localidadForm", localidad);
+	 * model.addAttribute("formTab", "active");
+	 * model.addAttribute("listaLocalidades",
+	 * localidadService.obtenerLocalidades()); }else { try {
+	 * localidadService.guardarLocalidad(); model.addAttribute("localidadForm", new
+	 * Localidad()); model.addAttribute("listTab", "active"); }catch (Exception e) {
+	 * //pasar excepciones al html model.addAttribute("formLocalidadErrorMessage",
+	 * e.getMessage()); model.addAttribute("localidadForm",localidad);
+	 * model.addAttribute("listaLocalidades",
+	 * localidadService.obtenerLocalidades()); model.addAttribute("formTab",
+	 * "active");
+	 * 
+	 * }
+	 * 
+	 * } return "localidadForm";
+	 */
 }
-	@GetMapping("/formulario/cancelar")
-	public String cancelarEditarLocalidad(ModelMap model) {
-		
-		return "redirect:/formulario";
-	}
+/*
+ * @GetMapping("/formulario/cancelar") public String
+ * cancelarEditarLocalidad(ModelMap model) {
+ * 
+ * return "redirect:/formulario"; }
+ */
 	
 	//modificar
 	/*
@@ -136,14 +134,12 @@ public class LocalidadController {
 	
 	// eliminar 
 	
-	@GetMapping("/eliminarLocalidad/{id}")
-	public String eliminarLocalidad(Model model, @PathVariable(name="id") long id ) {
-		try {
-			localidadService.eliminarLocalidad();
-		}catch(Exception e) {
-			model.addAttribute("listErrorMessage",e.getMessage());
-		}
-		return cargarFormulario(model);
-		
-	}
-}
+	/*
+	 * @GetMapping("/eliminarLocalidad/{id}") public String eliminarLocalidad(Model
+	 * model, @PathVariable(name="id") long id ) { try {
+	 * localidadService.eliminarLocalidad(); }catch(Exception e) {
+	 * model.addAttribute("listErrorMessage",e.getMessage()); } return
+	 * cargarFormulario(model);
+	 * 
+	 * } }
+	 */
