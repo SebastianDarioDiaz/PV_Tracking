@@ -14,8 +14,8 @@ import ar.edu.unju.fi.entity.RegistroTracking;
  */
 public interface IRegistroTrackingService {
 
-	void guardarRegistroTracking();
-	void eliminarRegistroTracking();
+	void guardarRegistroTracking(RegistroTracking tracking);
+	void eliminarRegistroTracking(RegistroTracking tracking);
 	Optional<RegistroTracking> obtenerRegistroTracking();
 	List<RegistroTracking> obtenerRegistroTrackings();
 	

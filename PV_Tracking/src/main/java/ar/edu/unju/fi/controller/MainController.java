@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ar.edu.unju.fi.entity.Localidad;
+import ar.edu.unju.fi.entity.RegistroTracking;
 import ar.edu.unju.fi.entity.Vehiculo;
 import ar.edu.unju.fi.service.ILocalidadService;
+import ar.edu.unju.fi.service.IRegistroTrackingService;
+import ar.edu.unju.fi.service.ITripulanteService;
 import ar.edu.unju.fi.service.IVehiculoService;
 
 
@@ -25,12 +28,27 @@ import ar.edu.unju.fi.service.IVehiculoService;
  */
 @Controller
 public class MainController {
+	
+	@Autowired
+	private IRegistroTrackingService trackingService;
 
 	@Autowired
 	private ILocalidadService localidadService;
 	
 	@Autowired
+	private ITripulanteService tripulanteService;
+	
+	
+	@Autowired
 	private Localidad localidad;
+	
+	@Autowired
+	private IVehiculoService vehiculoService;
+	
+	@Autowired
+	private RegistroTracking nuevotracking;
+	
+	
 	
 	@RequestMapping("/home")
 	public String main(Model model) {
@@ -79,8 +97,7 @@ public class MainController {
 		return "indexTest";
 	}
 	
-	@Autowired
-	private IVehiculoService vehiculoService;
+	
 	
 	@PostMapping("/altaVehiculo")
 	public String altaVehiculo(@ModelAttribute("vehiculo") Vehiculo vehiculo, Model model) throws Exception{
@@ -93,5 +110,28 @@ public class MainController {
 		}
 		return "indexTest";
 	}
+	
+	
+	
+	///TRACKING///
+			@GetMapping("/tracking")
+			public String tracking(Model model) {
+				model.addAttribute("nuevoTracking", new RegistroTracking());
+				model.addAttribute("tripulantes", tripulanteService.obtenerTripulantes());
+				model.addAttribute("vehiculo", vehiculoService.obtenerVehiculos());
+				model.addAttribute("localidades", localidadService.listarLocalidades());
+				model.addAttribute("formTab","active");
+				return "tracking";
+			}
+			
+			@PostMapping("/tracking")
+			public String gestionarTracking(@ModelAttribute ("nuevaTracking") RegistroTracking tracking, ModelMap model) {	
+				//AGREGAR
+				trackingService.guardarRegistroTracking(tracking);
+				model.addAttribute("nuevoTracking", new RegistroTracking());
+				
+				
+				return "tracking";
+			}
 	
 }

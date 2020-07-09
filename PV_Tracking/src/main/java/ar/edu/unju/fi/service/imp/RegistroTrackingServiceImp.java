@@ -26,15 +26,15 @@ public class RegistroTrackingServiceImp implements IRegistroTrackingService {
 	private RegistroTracking registroTracking;
 	
 	@Override
-	public void guardarRegistroTracking() {
+	public void guardarRegistroTracking(RegistroTracking tracking) {
 		// TODO Auto-generated method stub
-		registroTrackingRepository.save(registroTracking);
+		registroTrackingRepository.save(tracking);
 	}
 
 	@Override
-	public void eliminarRegistroTracking() {
+	public void eliminarRegistroTracking(RegistroTracking tracking) {
 		// TODO Auto-generated method stub
-		registroTrackingRepository.delete(registroTracking);
+		registroTrackingRepository.delete(tracking);
 
 	}
 
