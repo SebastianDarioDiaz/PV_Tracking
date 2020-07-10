@@ -50,4 +50,16 @@ public class RegistroTrackingServiceImp implements IRegistroTrackingService {
 		return registroTrackingRepository.findAll();
 	}
 
+	@Override
+	public RegistroTracking buscarRegistroT(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<RegistroTracking> listarRegistros() {
+		// TODO Auto-generated method stub
+		return registroTrackingRepository.findAll();
+	}
+
 }

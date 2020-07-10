@@ -25,18 +25,6 @@ public class VehiculoServiceImp implements IVehiculoService {
 	@Autowired
 	private Vehiculo vehiculo;
 	
-	@Override
-	public void guardarVehiculo(Vehiculo vehiculo) {
-		// TODO Auto-generated method stub
-		vehiculoRepository.save(vehiculo);
-
-	}
-
-	@Override
-	public void eliminarVehiculo() {
-		// TODO Auto-generated method stub
-		vehiculoRepository.delete(vehiculo);
-	}
 
 	@Override
 	public Optional<Vehiculo> obtenerVehiculo() {
@@ -48,6 +36,36 @@ public class VehiculoServiceImp implements IVehiculoService {
 	public List<Vehiculo> obtenerVehiculos() {
 		// TODO Auto-generated method stub
 		return vehiculoRepository.findAll();
+	}
+
+	@Override
+	public Vehiculo modificarVehiculo(Vehiculo vehiculo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vehiculo buscarVehiculo(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Vehiculo> listarVehiculos() {
+		// TODO Auto-generated method stub
+		return vehiculoRepository.findAll();
+	}
+
+	@Override
+	public void guardarVehiculo(Vehiculo vehiculo) {
+		// TODO Auto-generated method stub
+		vehiculoRepository.save(vehiculo);
+	}
+
+	@Override
+	public void eliminarVehiculo(Long id) {
+		// TODO Auto-generated method stub
+		vehiculoRepository.delete(vehiculo);
 	}
 
 }

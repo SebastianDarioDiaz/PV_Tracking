@@ -4,6 +4,10 @@
 package ar.edu.unju.fi.controller;
 
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +34,7 @@ import ar.edu.unju.fi.service.IVehiculoService;
 public class MainController {
 	
 	@Autowired
-	private IRegistroTrackingService trackingService;
+	private IRegistroTrackingService registroTrackingService;
 
 	@Autowired
 	private ILocalidadService localidadService;
@@ -113,25 +117,84 @@ public class MainController {
 	
 	
 	
-	///TRACKING///
-			@GetMapping("/tracking")
-			public String tracking(Model model) {
-				model.addAttribute("nuevoTracking", new RegistroTracking());
-				model.addAttribute("tripulantes", tripulanteService.obtenerTripulantes());
-				model.addAttribute("vehiculo", vehiculoService.obtenerVehiculos());
-				model.addAttribute("localidades", localidadService.listarLocalidades());
+	/*
+	 * ///TRACKING Y///
+	 * 
+	 * @GetMapping("/tracking") public String tracking(Model model) {
+	 * model.addAttribute("nuevoTracking", new RegistroTracking());
+	 * model.addAttribute("tripulantes", tripulanteService.obtenerTripulantes());
+	 * model.addAttribute("vehiculo", vehiculoService.obtenerVehiculos());
+	 * model.addAttribute("localidades", localidadService.listarLocalidades());
+	 * model.addAttribute("formTab","active"); return "tracking"; }
+	 * 
+	 * @PostMapping("/tracking") public String gestionarTracking(@ModelAttribute
+	 * ("nuevaTracking") RegistroTracking tracking, ModelMap model) { //AGREGAR
+	 * registroTrackingService.guardarRegistroTracking(tracking);
+	 * model.addAttribute("nuevoTracking", new RegistroTracking());
+	 * 
+	 * 
+	 * return "tracking"; } ///TRACKING Y///
+	 */			
+			//VEHICULO
+			
+			//Método listado y filtrado de Vehículos.
+			@GetMapping("/vehiculos")
+			public String cargarFormVehiculos(Model model) {
+				model.addAttribute("vehiculos", vehiculoService.listarVehiculos());
 				model.addAttribute("formTab","active");
-				return "tracking";
+				return "formListadoVehiculos";
+			}
+
+			//Método filtrar aún no probado
+			public LocalDateTime fechaInicio;
+			public LocalDateTime fechaFinal;
+			private List<RegistroTracking> filtrarVehiculos(){
+				List<RegistroTracking> registros = (List<RegistroTracking>) registroTrackingService.listarRegistros();
+				List<RegistroTracking> listaNueva = new ArrayList<>();
+				if(fechaInicio != null && fechaFinal != null) {
+					for(RegistroTracking r: registros) {
+						if(r.getFechaHora().isBefore(fechaFinal) && r.getFechaHora().isAfter(fechaInicio)) {
+							listaNueva.add(r);
+						}
+					}
+				}
+
+				return listaNueva;
+			}
+			@PostMapping("/vehiculos")
+			public String filtrarVehiculos(@ModelAttribute ("nuevoVehiculo") Vehiculo vehiculo,Model model) {
+				vehiculoService.guardarVehiculo(vehiculo);;
+				
+				
+				model.addAttribute("nuevoVehiculo", new Vehiculo());
+				model.addAttribute("vehiculos", vehiculoService.listarVehiculos());
+				//Método filtrar aún no probado
+				model.addAttribute("listaNueva", filtrarVehiculos());
+				model.addAttribute("listTab","active");
+				return "formListadoVehiculos";
 			}
 			
+			///TRACKING D///
+			//TRACKING
+			@GetMapping("/tracking")
+			public String agregarRegistroTracking(Model model) {
+				model.addAttribute("nuevoRegistroT", new RegistroTracking());
+				model.addAttribute("nuevoVehiculo", new Vehiculo());
+				model.addAttribute("registros", registroTrackingService.listarRegistros());
+				model.addAttribute("formTab","active");
+				return "formTracking";
+			}
 			@PostMapping("/tracking")
-			public String gestionarTracking(@ModelAttribute ("nuevaTracking") RegistroTracking tracking, ModelMap model) {	
-				//AGREGAR
-				trackingService.guardarRegistroTracking(tracking);
-				model.addAttribute("nuevoTracking", new RegistroTracking());
+			public String listarRegistros(@ModelAttribute ("nuevoRegistroT") RegistroTracking registroTracking, @ModelAttribute ("nuevoVehiculo") Vehiculo vehiculo,Model model) {
+				registroTrackingService.guardarRegistroTracking(registroTracking);
+				model.addAttribute("nuevoRegistroT", new RegistroTracking());
+				vehiculoService.guardarVehiculo(vehiculo);
+				model.addAttribute("nuevoVehiculo", new Vehiculo());
 				
 				
-				return "tracking";
+				model.addAttribute("registros", registroTrackingService.listarRegistros());
+				model.addAttribute("listTab","active");
+				return "formTracking";
 			}
 	
 }

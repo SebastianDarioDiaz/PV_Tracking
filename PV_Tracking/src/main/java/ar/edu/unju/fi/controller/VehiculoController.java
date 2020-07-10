@@ -139,7 +139,7 @@ public class VehiculoController {
 	@GetMapping("/eliminarVehiculo/{id}")
 	public String eliminarVehiculo(Model model, @PathVariable(name="id") long id ) {
 		try {
-			vehiculoService.eliminarVehiculo();
+			vehiculoService.eliminarVehiculo(id);
 		}catch(Exception e) {
 			model.addAttribute("listErrorMessage",e.getMessage());
 		}

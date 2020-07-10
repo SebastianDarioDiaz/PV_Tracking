@@ -15,9 +15,12 @@ import ar.edu.unju.fi.entity.Vehiculo;
  */
 public interface IVehiculoService {
 
-	void guardarVehiculo(Vehiculo vehiculo);
-	void eliminarVehiculo();
+	public void guardarVehiculo(Vehiculo vehiculo);
+	public void eliminarVehiculo(Long id);
 	Optional<Vehiculo> obtenerVehiculo();
 	List<Vehiculo> obtenerVehiculos();
+	public Vehiculo modificarVehiculo( Vehiculo vehiculo) throws Exception;
+	public Vehiculo buscarVehiculo(Long id) throws Exception; 
+	public Iterable<Vehiculo> listarVehiculos();
 	
 }
