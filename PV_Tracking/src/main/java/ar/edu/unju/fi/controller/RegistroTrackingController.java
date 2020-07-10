@@ -23,7 +23,7 @@ public class RegistroTrackingController {
 	public class LocalidadController {
 		
 		@Autowired
-		IRegistroTrackingService registroTrackingService;
+		private IRegistroTrackingService registroTrackingService;
 		
 		
 		@Autowired
@@ -65,7 +65,7 @@ public class RegistroTrackingController {
 				model.addAttribute("listaRegistroTracking", registroTrackingService.obtenerRegistroTrackings());
 			}else  {
 				try {
-				registroTrackingService.guardarRegistroTracking();
+				registroTrackingService.guardarRegistroTracking(registroTracking);
 				model.addAttribute("registroTrackingForm", new RegistroTracking());
 				model.addAttribute("listTab", "active");
 			}catch (Exception e) {
@@ -138,7 +138,7 @@ public class RegistroTrackingController {
 		@GetMapping("/eliminarRegistroTracking/{id}")
 		public String eliminarRegistroTracking(Model model, @PathVariable(name="id") long id ) {
 			try {
-				registroTrackingService.eliminarRegistroTracking();
+				registroTrackingService.eliminarRegistroTracking(registroTracking);
 			}catch(Exception e) {
 				model.addAttribute("listErrorMessage",e.getMessage());
 			}
