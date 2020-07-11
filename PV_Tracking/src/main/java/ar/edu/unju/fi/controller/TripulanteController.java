@@ -55,7 +55,7 @@ public class TripulanteController {
 	public String crearTripulante(@Valid @ModelAttribute("tripulanteForm")Tripulante tripulante,BindingResult result, ModelMap model) {
 		//agregado valid(tambien en el modelo)y BindingResult 
 		if(result.hasErrors()) {
-			//si tira error se vuelve a la vista anteriro
+			//si tira error se vuelve a la vista anterior
 			model .addAttribute("tripulanteForm", tripulante);
 			model.addAttribute("formTab", "active");
 			model.addAttribute("listaTripulantes", tripulanteService.obtenerTripulantes());

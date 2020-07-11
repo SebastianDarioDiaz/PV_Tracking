@@ -196,5 +196,13 @@ public class MainController {
 				model.addAttribute("listTab","active");
 				return "formTracking";
 			}
+			
+			//Método listado y filtrado de Tripulantes.
+			@GetMapping("/tripulantes")
+			public String cargarFormTripulantes(Model model) {
+				model.addAttribute("tripulantes", tripulanteService.listarTripulantes());
+				model.addAttribute("formTab","active");
+				return "formListadoTripulantes";
+			}
 	
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import ar.edu.unju.fi.entity.Tripulante;
+import ar.edu.unju.fi.entity.Vehiculo;
 
 
 /**
@@ -19,4 +20,5 @@ public interface ITripulanteService {
 	void eliminarTripulante();
 	Optional<Tripulante> obtenerTripulante();
 	List<Tripulante> obtenerTripulantes();
+	public Iterable<Tripulante> listarTripulantes();
 }

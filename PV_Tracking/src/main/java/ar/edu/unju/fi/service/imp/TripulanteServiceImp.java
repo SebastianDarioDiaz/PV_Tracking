@@ -50,4 +50,12 @@ public class TripulanteServiceImp implements ITripulanteService {
 		return null;
 	}
 
+	@Override
+	public Iterable<Tripulante> listarTripulantes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
 }
