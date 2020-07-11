@@ -14,15 +14,21 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ar.edu.unju.fi.entity.Localidad;
 import ar.edu.unju.fi.entity.RegistroTracking;
+import ar.edu.unju.fi.entity.Rol;
+import ar.edu.unju.fi.entity.Tripulante;
+import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.entity.Vehiculo;
 import ar.edu.unju.fi.service.ILocalidadService;
 import ar.edu.unju.fi.service.IRegistroTrackingService;
+import ar.edu.unju.fi.service.IRolService;
 import ar.edu.unju.fi.service.ITripulanteService;
+import ar.edu.unju.fi.service.IUsuarioService;
 import ar.edu.unju.fi.service.IVehiculoService;
 
 
@@ -34,23 +40,31 @@ import ar.edu.unju.fi.service.IVehiculoService;
 public class MainController {
 	
 	@Autowired
-	private IRegistroTrackingService registroTrackingService;
-
+	private Localidad localidad;
+	@Autowired
+	private RegistroTracking registroTracking;
+	@Autowired
+	private Rol rol;
+	@Autowired
+	private Tripulante tripulante;
+	@Autowired
+	private Usuario usuario;
+	@Autowired
+	private Vehiculo vehiculo;
+	
+	
 	@Autowired
 	private ILocalidadService localidadService;
-	
 	@Autowired
+	private IRegistroTrackingService registroTrackingService;
+	@Autowired
+	private IRolService rolService;
+	@Autowired 
 	private ITripulanteService tripulanteService;
-	
-	
 	@Autowired
-	private Localidad localidad;
-	
+	private IUsuarioService usuarioService;
 	@Autowired
 	private IVehiculoService vehiculoService;
-	
-	@Autowired
-	private RegistroTracking nuevotracking;
 	
 	
 	
@@ -71,38 +85,62 @@ public class MainController {
 			return "usuarioFormTest";
 		}
 		
-		
-		
-	///LOCALIDAD///
+		///LOCALIDAD///
+		///LOCALIDAD///
+		///LOCALIDAD///
+		//Método agregar Localidad
 		@GetMapping("/localidades")
 		public String cargarFormLocalidad(Model model) {
 			model.addAttribute("nuevaLocalidad", new Localidad());
 			model.addAttribute("localidades", localidadService.listarLocalidades());
 			model.addAttribute("formTab","active");
-			return "formLocalidad";
+			return "listadoLocalidades";
 		}
 		
 		@PostMapping("/localidades")
 		public String gestionarLocalidad(@ModelAttribute ("nuevaLocalidad") Localidad localidad, ModelMap model) {	
 			//AGREGAR
 			localidadService.guardarLocalidad(localidad);
+			System.out.println("localidad guardada");
 			model.addAttribute("nuevaLocalidad", new Localidad());
 			
 			//LISTAR
 			model.addAttribute("localidades", localidadService.listarLocalidades());
 			model.addAttribute("listTab","active");
-			return "formLocalidad";
+			return "listadoLocalidades";
 		}
 		
+		@GetMapping("/eliminarLocalidad/{id}")
+		public String eliminarLocalidad(Model model,@PathVariable(name = "id") Long id) {
+			
+			try {
+				
+				localidadService.eliminarLocalidad(id);
+				System.out.println("elimino");
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+				model.addAttribute("listLocalidadErrorMessage", e.getMessage());
+			}
+			//return "redirect:/listadoLocalidades";
+			return cargarFormLocalidad(model);
+		}
 
+		///LOCALIDAD///
+		///LOCALIDAD///
+		///LOCALIDAD///
+		
+		
+		/*
 	@GetMapping({"/indexTest"})
 	public String ingresarTest(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		return "indexTest";
 	}
+	*/
 	
 	
-	
+		///VEHICULO
 	@PostMapping("/altaVehiculo")
 	public String altaVehiculo(@ModelAttribute("vehiculo") Vehiculo vehiculo, Model model) throws Exception{
 		try {
