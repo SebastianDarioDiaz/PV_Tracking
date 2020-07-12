@@ -15,45 +15,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </script>
 <!-- //custom-theme -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
-	media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="css/mainStyles.css" />
-<link rel='stylesheet' href='css/dscountdown.css' type='text/css'
-	media='all' />
+<link th:rel="stylesheet" th:href="@{/css/tempusdominus-bootstrap-4.min.css}"/>
+<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>		
+<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
+<!--  estos no tengo en el proyecto -->
+<script th:src="@{/js/moment.min.js}"></script>		
+<script th:src="@{/js/tempusdominus-bootstrap-4.min.js}"></script>
 
-<link rel="stylesheet" href="css/flexslider.css" type="text/css"
-	media="screen" property="" />
+
+
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/css/mainStyles.css" />
+<link rel='stylesheet' href='/css/dscountdown.css' type='text/css' media='all' />
+
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <!-- gallery -->
 <link href="css/lsb.css" rel="stylesheet" type="text/css">
 <!-- //gallery -->
 <!-- font-awesome-icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
-<link
-	href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-	rel="stylesheet">
-<link
-	href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
-
+<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- FORMULARIO -->
-<link href="vendor/mdi-font/css/material-design-iconic-font.min.css"
-	rel="stylesheet" media="all">
-<link href="vendor/font-awesome-4.7/css/font-awesome.min.css"
-	rel="stylesheet" media="all">
+<link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
 <!-- Font special for pages-->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Vendor CSS-->
 <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet"
-	media="all">
+<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
 <!-- Main CSS-->
 <link href="css/main.css" rel="stylesheet" media="all">
+<link th:rel="stylesheet" th:href="@{/css/main.css}" media="all"/>
+
 <!-- FORMULARIO -->
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -158,68 +159,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="card-body">
 					<h2 class="title">LOCALIDAD</h2>
 					<form class="form" role="form" autocomplete="off"
-						th:object="${nuevaLocalidad}" th:action="@{/localidades}"
-						method="post">
+						th:object="${nuevaLocalidad}" method="post">
 						<div class="input-group">
 							<input class="input--style-3" type="text"
 								placeholder="NOMBRE LOCALIDAD" style="text-align: center;"
 								th:field="${nuevaLocalidad.nombreLocalidad}">
 						</div>
 
-
-
-						<!-- <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
-                        </div> -->
 						<div class="p-t-10">
 							<button class="btn btn--pill btn--green" type="submit"
 								value="GuardarCambios"
 								th:value="${editMode}?'Guardar Usuario':'Crear Usuario'">ACEPTAR</button>
 						</div>
+						
 					</form>
 				</div>
 			</div>
 
 			<!-- <div class="tab-pane fade show" id="lista" role="tabpanel" th:classappend="${listTab}" aria-labelledby="lista-tab"> -->
-			<div class="card card-lista">
-				<!-- <div class="card-headingLista"></div> -->
-				<div class="card-body">
-					<h2 class="title" style="text-align: center">LOCALIDADES</h2>
-					<table id="localidadLista" class="table" >
-					<thead class="thead-dark">
-					
-					<tr>
-						<th scope="col">ID</th>
-						<th scope="col">NOMBRE</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr th:each="localidad : ${localidades}">
-						<td th:text="${localidad.id}"></td>
-						<td th:text="${localidad.nombreLocalidad}"></td>
-						<td> <i class="fa fa-edit"></i>  <i class="fa fa-trash-alt"></i> </td>
-					</tbody>	
-					</table>
-					
-					<!-- <form class="form" role="form" autocomplete="off"
-						th:object="${nuevaLocalidad}" th:action="@{/localidades}"
-						method="post">
-						<div class="input-group">
-							<input class="input--style-3" type="text"
-								placeholder="NOMBRE LOCALIDAD" style="text-align: center;"
-								th:field="${nuevaLocalidad.nombreLocalidad}">
-						</div>
-						<div class="p-t-10">
-							<button class="btn btn--pill btn--green" type="submit"
-								value="GuardarCambios"
-								th:value="${editMode}?'Guardar Usuario':'Crear Usuario'">ACEPTAR</button>
-						</div>
-					</form> -->
-				</div>
-			</div>
+			
 			<!-- </div> -->
 			
 			
@@ -244,8 +202,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="login-form">
 							<form action="#" method="post">
 								<input type="email" name="email" placeholder="Usuario"
-									required=""> <input type="password" name="password"
-									placeholder="Contraseña" required="">
+									required="required"> <input type="password" name="password"
+									placeholder="Contraseña" required="required">
 								<div class="tp">
 									<input type="submit" value="INGRESAR">
 								</div>

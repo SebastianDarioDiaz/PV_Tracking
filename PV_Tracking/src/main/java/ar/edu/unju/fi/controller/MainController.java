@@ -100,6 +100,7 @@ public class MainController {
 		@PostMapping("/localidades")
 		public String gestionarLocalidad(@ModelAttribute ("nuevaLocalidad") Localidad localidad, ModelMap model) {	
 			//AGREGAR
+			//localidadService.guardarLocalidad(localidad);
 			localidadService.guardarLocalidad(localidad);
 			System.out.println("localidad guardada");
 			model.addAttribute("nuevaLocalidad", new Localidad());
@@ -116,13 +117,13 @@ public class MainController {
 			try {
 				
 				localidadService.eliminarLocalidad(id);
-				System.out.println("elimino");
+				
 			}
 			catch (Exception e) {
 				// TODO: handle exception
 				model.addAttribute("listLocalidadErrorMessage", e.getMessage());
 			}
-			//return "redirect:/listadoLocalidades";
+			
 			return cargarFormLocalidad(model);
 		}
 
