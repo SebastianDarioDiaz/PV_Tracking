@@ -33,15 +33,43 @@ public class UsuarioController {
 	}
 	
 	
-	@GetMapping("/nuevoUsuario")
-	public String agregar(Model model) {
-		model.addAttribute("usuario", usuario);
-		return "usuarioForm";
-	}
-	
-	
+	//usuario
+			@RequestMapping("/usuario")
+			
+			public String getUsuarioFormTest(Model model) {
+				
+				return"/";
+			}
+			
+			@GetMapping("/nuevoUsuario")
+			public String agregar(Model model) {
+				model.addAttribute("usuario",usuario);
+				return "usuarioFormTest";
+			}
+			
+			@PostMapping("/save")
+			public String  guardar (@Valid Usuario usuario, Model model) {
+				
+				return "redirect:/usuario";
+			}
+			
+			//agregar
+			
+			@GetMapping("/usuario")
+			public String cargarFormulario(Model model) {
+				model.addAttribute("usuario", new Usuario());
+				model.addAttribute("listaUsuario", usuarioService.obtenerUsuarios());
+				model.addAttribute("formTab", "active");
+				return "usuarioFormTest";
+			}
 
 
+	
+	
+	
+	
+	
+/*
 
 //agregar
 	@GetMapping("/formulario-5")
@@ -62,7 +90,7 @@ public class UsuarioController {
 			model.addAttribute("listaUsuarios", usuarioService.obtenerUsuarios());
 		}else {
 		try {
-			usuarioService.guardarUsuario();
+			usuarioService.guardarUsuario(usuario);
 			model.addAttribute("usuarioForm", new Usuario());
 			model.addAttribute("listTab", "active");
 		}catch (Exception e) {

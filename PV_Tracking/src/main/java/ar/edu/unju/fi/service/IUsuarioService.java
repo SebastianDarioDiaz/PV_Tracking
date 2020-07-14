@@ -14,7 +14,7 @@ import ar.edu.unju.fi.entity.Usuario;
  */
 public interface IUsuarioService {
 
-	void guardarUsuario();
+	void guardarUsuario(Usuario usuario);
 	void eliminarUsuario();
 	Optional<Usuario> obtenerUsuario();
 	List<Usuario> obtenerUsuarios();

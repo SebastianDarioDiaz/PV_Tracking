@@ -151,18 +151,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title" >REGISTRO</h2>
-                    <form method="POST" >
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="USUARIO" name="name" style="text-align: center;">
+                    <form class="form" role="form" autocomplete="off"
+                    	th:object="${nuevoUsuario}" th:action="@{/usuario}"
+                    		 method="POST" >
+                    		 
+                    	<div class="input-group">
+                            <input class="input--style-3" type="number" placeholder="idUsuario" style="text-align: center;"
+                            th:field="${nuevoUsuario.idUsuario}">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="CONTRASEÑA" name="apellido" style="text-align: center;">
+                            <input class="input--style-3" type="text" placeholder="nombreUsuario" style="text-align: center;"
+                            th:field="${nuevoUsuario.nombreUsuario}">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="password" style="text-align: center;"
+                            th:field="${nuevoUsuario.password}">
                         </div>
                          <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="NOMBRE" name="apellido" style="text-align: center;">
+                            <input class="input--style-3" type="text" placeholder="nombreReal" style="text-align: center;"
+                            th:field="${nuevoUsuario.nombreReal}">
                         </div>
                          <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="APELLIDO" name="apellido" style="text-align: center;">
+                            <input class="input--style-3" type="text" placeholder="apellidoReal" style="text-align: center;"
+                            th:field="${nuevoUsuario.apellidoReal}">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="tipoUsuario" style="text-align: center;"
+                            th:field="${nuevoUsuario.tipoUsuario}">
                         </div>
                         <!-- <div class="input-group">
                             <input class="input--style-3 js-datepicker" type="text" placeholder="Fecha de Nacimiento" name="birthday">
@@ -181,7 +196,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="select-dropdown"></div>
                             </div>
                         </div> 
-                        
+                       
+                       
+                       
+                          
+                       
+                      <!-- 
+                       <tbody>
+                       <tr th:each="usuario : ${usuario}">
+                       <td th:number="${usuario.idUsuario}">
+                       <td th:text="${usuario.nombreUsuario}">
+                       <td th:text="${usuario.password}">
+                       <td th:text="${usuario.nombreReal}">
+                       <td th:text="${usuario.apellidoReal}">
+                       <td th:text="${usuario.tipoUsuario}">
+                       <td> <i class="fa fa-edit"></i>  <i class="fa fa-trash-alt"></i> </td>
+                       </tbody>-->
+                       
+                       
+                       
+                       
+                       
+                       
+                       
                         
                         
                         

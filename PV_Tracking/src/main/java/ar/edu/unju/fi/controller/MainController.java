@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,6 +86,47 @@ public class MainController {
 		public String abrirF(Model model) {
 			return "usuarioFormTest";
 		}
+		 
+		//usuario
+		
+		
+		@GetMapping("/usuario")
+		public String cargarFormUsuario(Model model) {
+			model.addAttribute("nuevoUsuario",new Usuario());
+			model.addAttribute("usuario", usuarioService.obtenerUsuarios());
+			model.addAttribute("formTab", "active");
+			return "usuarioFormTest";
+		}
+		
+		@PostMapping("/usuario")
+		public String  gestionarUsuario (@ModelAttribute("nuevoUsuario") Usuario usuario, ModelMap model) {
+			//agregar
+			usuarioService.guardarUsuario(usuario);
+			model.addAttribute("nuevoUsuario", new Usuario());
+			
+			//listar
+			model.addAttribute("usuario", usuarioService.obtenerUsuarios());
+			model.addAttribute("listtab", "active");
+			return "usuarioFormTest";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		///LOCALIDAD///
 		///LOCALIDAD///
