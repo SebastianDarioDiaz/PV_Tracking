@@ -157,7 +157,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="card-headingLocalidad"></div>
 				<div class="card-body">
 					<h2 class="title">VEHICULO</h2>
-					<form class="form" role="form" autocomplete="off"
+					<form class="form" role="form" a<form class="form" role="form" autocomplete="off"
+						th:object="${nuevoVehiculo}" th:action="@{/formVehiculo}"
+						method="post">
+						<div class="input-group">
+							<input class="input--style-3" type="text"
+								placeholder="Patente" style="text-align: center;"
+								th:field="${nuevoVehiculo.patente}">utocomplete="off"
 						th:object="${nuevoVehiculo}" th:action="@{/formVehiculo}"
 						method="post">
 						<div class="input-group">

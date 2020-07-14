@@ -134,7 +134,7 @@ public class TripulanteController {
 	@GetMapping("/eliminarTripulante/{id}")
 	public String eliminarTripulante(Model model, @PathVariable(name="id") long id ) {
 		try {
-			tripulanteService.eliminarTripulante();
+	//		tripulanteService.eliminarTripulante();
 		}catch(Exception e) {
 			model.addAttribute("listErrorMessage",e.getMessage());
 		}

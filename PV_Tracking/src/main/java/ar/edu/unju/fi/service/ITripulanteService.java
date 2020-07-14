@@ -17,7 +17,8 @@ import ar.edu.unju.fi.entity.Vehiculo;
 public interface ITripulanteService {
 
 	void guardarTripulante();
-	void eliminarTripulante();
+	void guardarTripulante(Tripulante tripu);
+	void eliminarTripulante(Tripulante tripu);
 	Optional<Tripulante> obtenerTripulante();
 	List<Tripulante> obtenerTripulantes();
 	public Iterable<Tripulante> listarTripulantes();

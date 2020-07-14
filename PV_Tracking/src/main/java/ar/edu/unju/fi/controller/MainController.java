@@ -203,8 +203,6 @@ public class MainController {
 			@PostMapping("/vehiculos")
 			public String filtrarVehiculos(@ModelAttribute ("nuevoVehiculo") Vehiculo vehiculo,Model model) {
 				vehiculoService.guardarVehiculo(vehiculo);;
-				
-				
 				model.addAttribute("nuevoVehiculo", new Vehiculo());
 				model.addAttribute("vehiculos", vehiculoService.listarVehiculos());
 				//Método filtrar aún no probado
@@ -240,8 +238,25 @@ public class MainController {
 			@GetMapping("/tripulantes")
 			public String cargarFormTripulantes(Model model) {
 				model.addAttribute("tripulantes", tripulanteService.listarTripulantes());
+				model.addAttribute("nuevoTripulante", new Tripulante());
 				model.addAttribute("formTab","active");
 				return "formListadoTripulantes";
 			}
-	
+			
+			@PostMapping("/formListadoTripulantes")
+			public String agregarTripulante(@ModelAttribute ("nuevoTripulante") Tripulante tripulante, Model model) {
+				try {
+					tripulanteService.guardarTripulante(tripulante);
+					model.addAttribute("nuevoTripulante", new Tripulante());
+					model.addAttribute("tripulantes", tripulanteService.listarTripulantes());
+					model.addAttribute("listTab","active");
+				}catch (Exception e) {
+					System.out.print(e.getMessage());
+				}
+				
+				return "formListadoTripulantes";
+			}
+			
+			
+		
 }

@@ -32,9 +32,9 @@ public class TripulanteServiceImp implements ITripulanteService {
 	}
 
 	@Override
-	public void eliminarTripulante() {
+	public void eliminarTripulante(Tripulante tripu) {
 		// TODO Auto-generated method stub
-		tripulanteRepository.delete(tripulante);
+		tripulanteRepository.delete(tripu);
 
 	}
 
@@ -53,7 +53,13 @@ public class TripulanteServiceImp implements ITripulanteService {
 	@Override
 	public Iterable<Tripulante> listarTripulantes() {
 		// TODO Auto-generated method stub
-		return null;
+		return tripulanteRepository.findAll();
+	}
+
+	@Override
+	public void guardarTripulante(Tripulante tripu) {
+		// TODO Auto-generated method stub
+		tripulanteRepository.save(tripu);
 	}
 	
 	
